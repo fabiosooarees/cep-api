@@ -10,7 +10,7 @@ class PlaceController {
 
             const sanitizedCep = cep.replace(/[^0-9]/g,'')
             if(!sanitizedCep)
-                throw new Error('CEP informado é inválido')
+            throw new Error('CEP informado é inválido')
 
             const place = await db('places').select('*').where({cep: sanitizedCep})
             res.status(200).json({place})

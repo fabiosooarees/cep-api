@@ -2,24 +2,29 @@ const db = require('../database/connection')
 
 class CityController {
 
-  create(req, res){
+  async create(req, res){
+    try{
 
-    const {
-      description,
-      uf,
-      cod_ibge,
-      ddd
-    } = req.body
-
-    db.insert({description, uf, cod_ibge, ddd}).table('citys').then(data => {
-      console.log(data)
-      res.json({
-        msg: 'Created'
+      const {
+        description,
+        uf,
+        cod_ibge,
+        ddd
+      } = req.body
+      
+      const id = await db('citys').insert({description, uf, cod_ibge, ddd})
+      
+      return res.status(201).json({
+        id: id.length > 0 ? id[0] : id,
+        description,
+        uf,
+        cod_ibge,
+        ddd
       })
-    }).catch(error => {
-      console.log(error)
-    })
-
+      
+    }catch(error){
+      res.status(500).json({error})
+    }
   }
 
   getAll(req, res){

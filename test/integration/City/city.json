@@ -1,0 +1,14 @@
+{
+  "validCity": { 
+    "description" : "Wano",
+    "uf" : "WN",
+    "cod_ibge" : "0890",
+    "ddd" : "11"
+  },
+  "unvalidCity": { 
+    "description" : null,
+    "uf" : null,
+    "cod_ibge" : "TEXT",
+    "ddd" : "TEXT"
+  }
+}

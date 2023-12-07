@@ -7,6 +7,18 @@
     "start": "nodemon index.js",
     "test": "mocha --recursive --exit"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint — fix",
+      "prettier — write",
+      "git add"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,5 +32,10 @@
     "mocha": "^10.2.0",
     "mysql2": "^3.6.5",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.0"
   }
 }

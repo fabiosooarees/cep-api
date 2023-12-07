@@ -29,10 +29,9 @@ describe('CityController', () => {
         .post('/city/create')
         .send(unvalidCity)
         .end((err, res) => {
-          console.log(res)
-            chai.assert.isNotEmpty(res.body.error)
-            res.should.have.status(500)
-            done()
+          chai.assert.isNotEmpty(res.body.error)
+          res.should.have.status(500)
+          done()
         })
     })
 

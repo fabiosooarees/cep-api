@@ -12,11 +12,18 @@ class CityController {
         ddd
       } = req.body
       
-      const createdCity = await db('citys').insert({description, uf, cod_ibge, ddd});
-      return res.status(201).json(createdCity)
+      const id = await db('citys').insert({description, uf, cod_ibge, ddd})
+      
+      return res.status(201).json({
+        id: id.length > 0 ? id[0] : id,
+        description,
+        uf,
+        cod_ibge,
+        ddd
+      })
       
     }catch(error){
-      res.status(500).json({error, payload: null });
+      res.status(500).json({error})
     }
   }
 

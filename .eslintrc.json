@@ -3,5 +3,8 @@
   "parserOptions": {
   "ecmaVersion": 2024
   },
-  "rules": {}
+  "rules": {},
+  "env": {
+   "node": true
+  }
 }
